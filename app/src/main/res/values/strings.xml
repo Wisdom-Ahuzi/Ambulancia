@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Ambulancia</string>
+
+    <string name="ambulancia_logo">Ambulancia Logo</string>
+    <string name="ambulancia_app">AMBULANCIA APP</string>
+    <string name="round_the_clock_emergency_calls_for">Round-the-clock emergency calls for</string>
+    <string name="adults_and_children">adults and children</string>
+    <string name="anytime_anywhere">anytime &amp; anywhere!</string>
+    <string name="always_ready">Always ready</string>
+    <string name="ambulance">Ambulance</string>
+    <string name="name_st_john_s">Name: St John\'s</string>
+    <string name="location_guatemala_city">Location: Guatemala City</string>
+    <string name="fees_50">Fees: £50</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
