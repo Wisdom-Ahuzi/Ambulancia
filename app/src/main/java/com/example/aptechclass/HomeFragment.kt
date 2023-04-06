@@ -27,21 +27,24 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         ambulanceList = arrayListOf()
         ambulanceList.addAll(AmbulanceData.defaultAmbulances)
 
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.rvContainer)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvContainer)
 
         recyclerView?.layoutManager = LinearLayoutManager(context)
 
 
-        val amAdapter = AmbulanceAdapter(ambulanceList)
+        val amAdapter = AmbulanceAdapter(ambulanceList, parentFragmentManager)
+
         recyclerView?.adapter = amAdapter
 
         amAdapter.notifyDataSetChanged()
+
     }
 
 }

@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2175" />
+        <entry key="app/src/main/res/layout/activity_admin_home.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/layout/activity_bottom_nav.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/layout/activity_fragments.xml" value="0.1598731884057971" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2578125" />
@@ -15,13 +16,25 @@
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.21710526315789475" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.21710526315789475" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.21153846153846154" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.10338345864661654" />
+        <entry key="app/src/main/res/layout/admin_ambulance_home.xml" value="0.1598731884057971" />
+        <entry key="app/src/main/res/layout/ambulance_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_add_ambulance.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_admin_ambulance_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_admin_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_admin_settings.xml" value="0.1598731884057971" />
         <entry key="app/src/main/res/layout/fragment_bottom_navigation.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_home_ambulance_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_info.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/layout/fragment_one.xml" value="0.21153846153846154" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.21153846153846154" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_two.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/new_item.xml" value="0.1598731884057971" />
         <entry key="app/src/main/res/layout/recycler_view.xml" value="0.15918803418803418" />
+        <entry key="app/src/main/res/menu/admin_bottom_nav.xml" value="0.3447265625" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21153846153846154" />
         <entry key="app/src/main/res/menu/context_menu.xml" value="0.21153846153846154" />

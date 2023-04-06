@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.Home -> supportFragmentManager.beginTransaction().add(R.id.container, HomeFragment()).commit()
                 R.id.settings -> supportFragmentManager.beginTransaction().add(R.id.container, settingsFragment()).commit()
+                R.id.info -> supportFragmentManager.beginTransaction().add(R.id.container, InfoFragment()).commit()
             }
             return@setOnItemSelectedListener true
         }

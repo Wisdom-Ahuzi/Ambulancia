@@ -10,16 +10,14 @@
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginTop="5dp"
-    app:contentPaddingBottom="30dp"
+    app:contentPaddingBottom="20dp"
     android:background="@color/white"
     >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
         android:background="@color/white"
-
         >
 
         <ImageView
@@ -28,17 +26,20 @@
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/ambulance"
-            android:src="@drawable/image" />
+
+            android:src="@drawable/red" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_st_john_s"
+            android:text="Name: Admin name"
             android:layout_marginTop="15dp"
+            android:textAlignment="center"
             android:textSize="20sp"
             android:paddingLeft="5dp"
-            android:id="@+id/name"
+            android:id="@+id/adminName"
+
             android:textStyle="bold"
             android:textColor="@color/blue_11"
             />
@@ -46,24 +47,47 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/location_guatemala_city"
+            android:text="Location: Admin Location"
             android:paddingLeft="5dp"
-            android:textStyle="italic"
-            android:textColor="@color/blue_11"
-            android:id="@+id/location"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:id="@+id/adminLocation"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:paddingLeft="5dp"
-            android:text="@string/fees_50"
-            android:textStyle="italic"
-            android:textColor="@color/blue_11"
-            android:id="@+id/fees"
+            android:text="Fees: Admin Fees"
+            android:textAlignment="center"
+            android:id="@+id/adminFees"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
             />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/ivdeleteAmbulance"
+                android:src="@drawable/ic_baseline_delete_forever_24"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/ivEditAmbulance"
+                android:src="@drawable/ic_baseline_edit_24"/>
+
+        </LinearLayout>
     </LinearLayout>
 
 

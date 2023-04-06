@@ -2,14 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".settingsFragment"
+    android:layout_height="match_parent"
+    tools:context=".AdminSettings"
+
     android:background="@color/white"
 
     android:fillViewport="true"
     android:scrollbars="none"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_height="230dp"
             android:scaleType="centerCrop"
             android:background="@color/white"
-            android:src="@drawable/ambulance"/>
+            android:src="@drawable/red"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -53,21 +53,20 @@
             android:background="@color/gray"
             android:layout_marginTop="10dp"
             />
-        
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
+            android:orientation="horizontal"
             android:layout_marginTop="25dp"
             android:gravity="center_vertical">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_round_account_circle_24"/>
+                android:src="@drawable/ic_round_account_box_24"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,10 +75,12 @@
                 android:textSize="19sp"
                 android:textColor="@color/blue_11"
                 android:textStyle="bold"
-                android:id="@+id/login"
-                android:text="Sign in"/>
+                android:id="@+id/signOut"
+                android:text="Sign Out"/>
 
         </LinearLayout>
+
+
 
 
         <TextView
@@ -118,7 +119,7 @@
                 android:src="@drawable/ic_baseline_nights_stay_24"/>
 
             <Switch
-                android:id="@+id/switchOne"
+                android:id="@+id/switchTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dark mode"
@@ -153,13 +154,11 @@
                 android:textSize="19sp"
                 android:textColor="@color/blue_11"
                 android:textStyle="bold"
-                android:id="@+id/exitApp"
+                android:id="@+id/adminExitApp"
 
-                android:text="Exit app"/>
+                android:text="Exit"/>
 
         </LinearLayout>
-
     </LinearLayout>
-
 
 </ScrollView>

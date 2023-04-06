@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeAmbulanceDetail"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/ambulance"
+            android:src="@drawable/image"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Saint John's"
+            android:id="@+id/tvDetailName"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            android:textSize="27sp"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:orientation="horizontal"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_baseline_location_on_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Block 43, Guatamala City, Guatamala."
+                android:textAlignment="center"
+                android:id="@+id/tvDetailLocation"
+                android:textColor="@color/purple_500"
+
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ambulance description. We are an ambulance service commited to preventing death to your loved ones. We offer 24/27 hours services, so you can contact us whatever time you want."
+            android:id="@+id/tvDetailDescription"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
+            android:justificationMode="inter_word"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fee : £500"
+            android:textAlignment="center"
+            android:id="@+id/tvDetailFee"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="18dp"
+            android:text="call +234 5564 556 2221"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

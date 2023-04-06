@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="15dp"
+    tools:context=".InfoFragment">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_ambulancia"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_11"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/blue_11"
+            android:text="@string/about_us"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Mission"
+            android:textSize="24sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_11"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="17sp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/blue_11"
+            android:text="@string/our_mission"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="17sp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/blue_11"
+            android:text="@string/thank_you"
+            />
+
+</LinearLayout>

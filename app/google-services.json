@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623046393657",
+    "project_id": "ambulancia-efcbf",
+    "storage_bucket": "ambulancia-efcbf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623046393657:android:def2b9666379a3a081f2e8",
+        "android_client_info": {
+          "package_name": "com.example.aptechclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623046393657-v4tes9sagdjha3i1ecut9mc28d7ov7ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD57GDBce6cRZVKgGZ07-xHpuMcaX-WIOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623046393657-v4tes9sagdjha3i1ecut9mc28d7ov7ao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
