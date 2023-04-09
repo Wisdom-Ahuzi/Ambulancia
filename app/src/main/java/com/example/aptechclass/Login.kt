@@ -33,8 +33,8 @@ class Login : AppCompatActivity() {
 //                            val user: FirebaseUser? = mAuth!!.currentUser
 
 
-//                            val intent = Intent(applicationContext,Admin_Home::class.java)
-//                            startActivity(intent)
+                            val intent = Intent(applicationContext,Admin_Home::class.java)
+                            startActivity(intent)
                         Log.d("done", "onCreate: ")
                         Toast.makeText(
                             this, "Authentication Successful.", Toast.LENGTH_SHORT

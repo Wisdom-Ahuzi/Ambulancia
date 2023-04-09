@@ -2,19 +2,27 @@ package com.example.aptechclass
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aptechclass.sampleAdapter.AmbulanceAdapter
 import com.example.aptechclass.sampleData.AmbulanceData
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
     private lateinit var ambulanceList : ArrayList<AmbulanceData>
-    @SuppressLint("NotifyDataSetChanged")
+    private lateinit var amAdapter : AmbulanceAdapter
 
+    var db = Firebase.firestore
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,16 +43,37 @@ class HomeFragment : Fragment() {
         ambulanceList.addAll(AmbulanceData.defaultAmbulances)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvContainer)
-
+        recyclerView.setHasFixedSize(true)
         recyclerView?.layoutManager = LinearLayoutManager(context)
 
 
-        val amAdapter = AmbulanceAdapter(ambulanceList, parentFragmentManager)
+        amAdapter = AmbulanceAdapter(ambulanceList, parentFragmentManager)
 
         recyclerView?.adapter = amAdapter
 
-        amAdapter.notifyDataSetChanged()
 
+        EventChangeListener()
+    }
+
+    private fun EventChangeListener(){
+        db = FirebaseFirestore.getInstance()
+        db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot>{
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                if (error != null){
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for (dc : DocumentChange in value?.documentChanges!!){
+                    if (dc.type == DocumentChange.Type.ADDED){
+//                        ambulanceList.add(dc.document.toObject(AmbulanceData::class.java))
+                        Toast.makeText(context,"${dc.document}",Toast.LENGTH_SHORT).show()
+                    }
+                }
+                amAdapter.notifyDataSetChanged()
+            }
+
+        })
     }
 
 }
