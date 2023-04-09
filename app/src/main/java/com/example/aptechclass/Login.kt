@@ -1,5 +1,6 @@
 package com.example.aptechclass
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -30,6 +31,8 @@ class Login : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
 
 //                            val user: FirebaseUser? = mAuth!!.currentUser
+
+
 //                            val intent = Intent(applicationContext,Admin_Home::class.java)
 //                            startActivity(intent)
                         Log.d("done", "onCreate: ")
