@@ -16,12 +16,12 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance();
-        val sign_up_btn = findViewById<Button>(R.id.signupbtn);
-        val signupemail = findViewById<TextInputEditText>(R.id.signupemail).text.toString().trim()
-        val signuppassword = findViewById<TextInputEditText>(R.id.signuppassword).text.toString()
 
+        val sign_up_btn = findViewById<Button>(R.id.signupbtn);
 
         sign_up_btn.setOnClickListener {
+            val signupemail = findViewById<TextInputEditText>(R.id.signupemail).text.toString().trim()
+            val signuppassword = findViewById<TextInputEditText>(R.id.signuppassword).text.toString()
             Log.i("emailv", signupemail)
             Log.i("passv", signuppassword)
             mAuth!!.signInWithEmailAndPassword(signupemail, signuppassword)
@@ -33,6 +33,9 @@ class Login : AppCompatActivity() {
 //                            val intent = Intent(applicationContext,Admin_Home::class.java)
 //                            startActivity(intent)
                         Log.d("done", "onCreate: ")
+                        Toast.makeText(
+                            this, "Authentication Successful.", Toast.LENGTH_SHORT
+                        ).show()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.d("TAG", "signInWithEmail:failure + ${task.exception.toString()}")
