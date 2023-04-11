@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +64,17 @@ class HomeAmbulanceDetail : Fragment() {
                 view.findViewById<TextView>(R.id.tvDetailLocation).text = it1
             }
 
+            value?.getString(
+                "Description"
+            )?.let { it1 ->
+                view.findViewById<TextView>(R.id.tvDetailDescription).text = it1
+            }
+
+            value?.getString(
+                "Phone"
+            )?.let { it1 ->
+                view.findViewById<MaterialButton>(R.id.phone).text = it1
+            }
         }
         }
     }
