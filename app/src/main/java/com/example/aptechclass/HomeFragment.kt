@@ -68,16 +68,9 @@ class HomeFragment : Fragment() {
                     val name = ambulance.getString("Name")!!
                     val fees = Integer.parseInt(ambulance.getString("Fees")!!)
                     val location = ambulance.getString("Location")!!
-
                     ambulanceList.add(AmbulanceData(name,location, fees))
                 }
-//                for (dc : DocumentChange in value?.documentChanges!!){
-//                    if (dc.type == DocumentChange.Type.ADDED){
-////                        ambulanceList.add(dc.document.toObject(AmbulanceData::class.java))
-//                        Log.d("doc", dc.document.toString())
-//                        Toast.makeText(context,"${dc.document}",Toast.LENGTH_SHORT).show()
-//                    }
-//                }
+
                 amAdapter.notifyDataSetChanged()
             }
 

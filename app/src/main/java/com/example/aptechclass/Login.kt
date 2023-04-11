@@ -28,11 +28,6 @@ class Login : AppCompatActivity() {
             mAuth!!.signInWithEmailAndPassword(signupemail, signuppassword)
                 .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-
-//                            val user: FirebaseUser? = mAuth!!.currentUser
-
-
                             val intent = Intent(applicationContext,Admin_Home::class.java)
                             startActivity(intent)
                         Log.d("done", "onCreate: ")

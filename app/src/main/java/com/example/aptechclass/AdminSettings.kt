@@ -1,10 +1,15 @@
 package com.example.aptechclass
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlin.system.exitProcess
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +40,23 @@ class AdminSettings : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_admin_settings, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val signoutBtn = view.findViewById<TextView>(R.id.signOut)
+        val adminExitApp = view.findViewById<TextView>(R.id.adminExitApp)
+
+        adminExitApp.setOnClickListener {
+            exitProcess(0)
+        }
+
+        signoutBtn.setOnClickListener {
+            Firebase.auth.signOut()
+            val intent = Intent(context?.applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     companion object {

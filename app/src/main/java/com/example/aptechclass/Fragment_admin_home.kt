@@ -60,19 +60,20 @@ class Fragment_admin_home : Fragment() {
 
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
-        db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot> {
+        db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot>{
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null){
                     Log.e("Firestore Error", error.message.toString())
                     return
                 }
-                for (dc : DocumentChange in value?.documentChanges!!){
-                    if (dc.type == DocumentChange.Type.ADDED){
-//                        ambulanceList.add(dc.document.toObject(AmbulanceData::class.java))
-                        Toast.makeText(context,"${dc.document}", Toast.LENGTH_SHORT).show()
-                    }
+                for (ambulance in value?.documents!!) {
+                    val name = ambulance.getString("Name")!!
+                    val fees = Integer.parseInt(ambulance.getString("Fees")!!)
+                    val location = ambulance.getString("Location")!!
+                    adminambulanceList.add(AdminAmbulanceData(name,location, fees))
                 }
+
                 amAdminAdapter.notifyDataSetChanged()
             }
 
