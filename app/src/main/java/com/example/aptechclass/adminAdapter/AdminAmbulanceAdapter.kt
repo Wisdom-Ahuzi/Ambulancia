@@ -9,16 +9,22 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aptechclass.AdminAmbulanceDetail
+import com.example.aptechclass.HomeAmbulanceDetail
 import com.example.aptechclass.R
 import com.example.aptechclass.adminData.AdminAmbulanceData
+import com.google.firebase.firestore.FirebaseFirestore
 
+private const val AMBULANCE_ID = "ambulance_id"
 class AdminAmbulanceAdapter (private val adminAmbulances:ArrayList<AdminAmbulanceData>, private val fragmentManager: FragmentManager) : RecyclerView.Adapter<AdminAmbulanceAdapter.AdminambulanceViewHolder>(){
-
+    private var id: String? = null
+    val db = FirebaseFirestore.getInstance();
     inner class AdminambulanceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val nameView: TextView = itemView.findViewById(R.id.adminName)
         val locationView: TextView = itemView.findViewById(R.id.adminLocation)
         val fees: TextView = itemView.findViewById(R.id.adminFees)
         val editButton: ImageView = itemView.findViewById(R.id.ivEditAmbulance)
+        val deleteButton: ImageView = itemView.findViewById(R.id.ivdeleteAmbulance)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdminambulanceViewHolder {
@@ -32,7 +38,10 @@ class AdminAmbulanceAdapter (private val adminAmbulances:ArrayList<AdminAmbulanc
         holder.fees.text = "Fees: ${adminAmbulances[position].Fees.toString()}"
 
         holder.editButton.setOnClickListener {
-            fragmentManager.beginTransaction().add(R.id.adminContainer,AdminAmbulanceDetail.newInstance("","")).commitNow()
+            fragmentManager.beginTransaction().add(R.id.adminContainer,AdminAmbulanceDetail.newInstance(adminAmbulances[position].ID)).commitNow()
+        }
+        holder.deleteButton.setOnClickListener{
+            id?.let { db.collection("cardAmbulance").document(it).delete() }
         }
     }
 

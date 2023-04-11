@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val AMBULANCE_ID = "ambulance_id"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,15 +20,12 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class AdminAmbulanceDetail : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            id = it.getString(AMBULANCE_ID)
         }
     }
 
@@ -37,22 +37,78 @@ class AdminAmbulanceDetail : Fragment() {
         return inflater.inflate(R.layout.fragment_admin_ambulance_detail, container, false)
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val db = FirebaseFirestore.getInstance();
+
+//        id?.let { db.collection("cardAmbulance").document(it).delete() }
+
+//       AlertDialog.Builder(view.context).setMessage("Are you sure you want to delete").show()
+
+        id.let {
+            if (it != null) {
+                db.collection("cardAmbulance").document(it).addSnapshotListener { value, error ->
+                    value?.getString(
+                        "Name"
+                    )?.let { it1 ->
+                        view.findViewById<TextInputEditText>(R.id.adminDetailName).setText(it1)
+                    }
+
+                    value?.getString(
+                        "Fees"
+                    )?.let { it1 ->
+                        view.findViewById<TextInputEditText>(R.id.adminDetailFee).setText(it1)
+                    }
+
+                    value?.getString(
+                        "Location"
+                    )?.let { it1 ->
+                        view.findViewById<TextInputEditText>(R.id.adminDetailLocation).setText(it1)
+                    }
+
+                    value?.getString(
+                        "Description"
+                    )?.let { it1 ->
+                        view.findViewById<TextInputEditText>(R.id.adminDetailDescription).setText(it1)
+                    }
+
+                    value?.getString(
+                        "Phone"
+                    )?.let { it1 ->
+                        view.findViewById<TextInputEditText>(R.id.adminDetailContact).setText(it1)
+                    }
+                }
+            }
+        }
+        val adminDetailName = view.findViewById<TextInputEditText>(R.id.adminDetailName).text.toString()
+        val adminDetailLocation = view.findViewById<TextInputEditText>(R.id.adminDetailLocation).text.toString()
+        val adminDetailDescription = view.findViewById<TextInputEditText>(R.id.adminDetailDescription).text.toString()
+        val adminDetailFee = view.findViewById<TextInputEditText>(R.id.adminDetailFee).text.toString()
+        val adminDetailContact = view.findViewById<TextInputEditText>(R.id.adminDetailContact).text.toString()
+
+        val updateAmbulance = view.findViewById<MaterialButton>(R.id.updateAmbulance)
+
+        updateAmbulance.setOnClickListener {
+            id?.let { db.collection("cardAmbulance").document(it).update("Name", adminDetailName)}
+            parentFragmentManager.beginTransaction().add(R.id.container,Fragment_admin_home()).commit()
+
+        }
+    }
+
+
     companion object {
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AdminAmbulanceDetail.
+
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(id: String) =
             AdminAmbulanceDetail().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(AMBULANCE_ID, id)
                 }
             }
     }

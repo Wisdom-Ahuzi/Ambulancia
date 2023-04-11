@@ -71,7 +71,7 @@ class Fragment_admin_home : Fragment() {
                     val name = ambulance.getString("Name")!!
                     val fees = Integer.parseInt(ambulance.getString("Fees")!!)
                     val location = ambulance.getString("Location")!!
-                    adminambulanceList.add(AdminAmbulanceData(name,location, fees))
+                    adminambulanceList.add(AdminAmbulanceData(ambulance.id,name,location, fees))
                 }
 
                 amAdminAdapter.notifyDataSetChanged()
