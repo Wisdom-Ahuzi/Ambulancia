@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     private lateinit var ambulanceList : ArrayList<AmbulanceData>
     private lateinit var amAdapter : AmbulanceAdapter
 
-    var db = Firebase.firestore
+    private var db = Firebase.firestore
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
 
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
+
         db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot>{
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
@@ -68,7 +69,7 @@ class HomeFragment : Fragment() {
                     val name = ambulance.getString("Name")!!
                     val fees = Integer.parseInt(ambulance.getString("Fees")!!)
                     val location = ambulance.getString("Location")!!
-                    ambulanceList.add(AmbulanceData(name,location, fees))
+                    ambulanceList.add(AmbulanceData(ambulance.id, name,location, fees))
                 }
 
                 amAdapter.notifyDataSetChanged()

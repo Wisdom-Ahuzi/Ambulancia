@@ -29,10 +29,10 @@ class AmbulanceAdapter (private val ambulances:ArrayList<AmbulanceData>, private
     override fun onBindViewHolder(holder: AmbulanceViewHolder, position: Int) {
         holder.nameView.text = "Name: ${ambulances[position].Name}"
         holder.locationView.text = "Location: ${ambulances[position].Location}"
-        holder.fees.text = "Fees: ${ambulances[position].Fees.toString()}"
+        holder.fees.text = "Fees: ${ambulances[position].Fees}"
 
         holder.itemView.setOnClickListener {
-            fragmentManager.beginTransaction().add(R.id.container, HomeAmbulanceDetail.newInstance("", "")).commitNow()
+            fragmentManager.beginTransaction().add(R.id.container, HomeAmbulanceDetail.newInstance(ambulances[position].ID)).commitNow()
         }
     }
 
