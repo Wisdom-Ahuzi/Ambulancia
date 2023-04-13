@@ -42,13 +42,13 @@
 
             >
 
-            <androidx.appcompat.widget.SearchView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_height="40dp"
                 android:iconifiedByDefault="true"
                 android:textAlignment="textStart"
-
+                android:id="@+id/homeSearch"
                 android:background="@color/gray_black"
                 android:layout_weight="3"
                 tools:ignore="NestedWeights" />
@@ -62,6 +62,7 @@
                 android:background="@color/gray_black"
                 android:layout_weight="0.5"
                 android:padding="4dp"
+                android:id="@+id/executeSearch"
                 android:src="@drawable/ic_round_filter_list_24"
                 />
         </LinearLayout>
@@ -70,12 +71,18 @@
 
     </LinearLayout>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/ambulance_home"
         android:id="@+id/rvContainer"
         />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

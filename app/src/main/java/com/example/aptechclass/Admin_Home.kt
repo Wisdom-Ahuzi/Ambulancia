@@ -25,4 +25,12 @@ class Admin_Home : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
     }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack();
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

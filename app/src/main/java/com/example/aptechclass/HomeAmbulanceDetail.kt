@@ -1,5 +1,6 @@
 package com.example.aptechclass
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.media.metrics.Event
@@ -11,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.*
 
@@ -33,6 +35,7 @@ class HomeAmbulanceDetail : Fragment() {
         return inflater.inflate(R.layout.fragment_home_ambulance_detail, container, false)
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val db = FirebaseFirestore.getInstance();
 
@@ -73,7 +76,17 @@ class HomeAmbulanceDetail : Fragment() {
 
         //Makes a phone call to the ambulance service.
         phone.setOnClickListener {
-            val callIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse(phone.text.toString()))
+            val intent = Intent(Intent.ACTION_DIAL).apply {
+                data = Uri.parse("tel:${phone.text}")
+            }
+
+            if (intent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(intent)
+            } else {
+                // Handle error case when phone app is not available
+                Toast.makeText(view.context,"Not done", Toast.LENGTH_SHORT).show()
+
+            }
         }
     }
 

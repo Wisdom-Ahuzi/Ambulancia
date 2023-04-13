@@ -18,6 +18,12 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance();
 
+        if(mAuth!!.currentUser != null){
+            val intent = Intent(applicationContext,Admin_Home::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val sign_up_btn = findViewById<Button>(R.id.signupbtn);
 
         //Button for signing into the admin page.
@@ -32,6 +38,7 @@ class Login : AppCompatActivity() {
                         // If the task is successful, the user is navigated to the admin page
                             val intent = Intent(applicationContext,Admin_Home::class.java)
                             startActivity(intent)
+                            finish()
                         Log.d("done", "onCreate: ")
                         Toast.makeText(
                             this, "Authentication Successful.", Toast.LENGTH_SHORT

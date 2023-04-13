@@ -3,17 +3,15 @@ package com.example.aptechclass
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.aptechclass.adminAdapter.AdminAmbulanceAdapter
 import com.example.aptechclass.adminData.AdminAmbulanceData
-import com.example.aptechclass.sampleAdapter.AmbulanceAdapter
-import com.example.aptechclass.sampleData.AmbulanceData
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -23,6 +21,7 @@ class Fragment_admin_home : Fragment() {
     private lateinit var adminambulanceList : ArrayList<AdminAmbulanceData>
     private lateinit var amAdminAdapter : AdminAmbulanceAdapter
     var db = Firebase.firestore
+    private lateinit var swipeContainer: SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +43,13 @@ class Fragment_admin_home : Fragment() {
 
         adminambulanceList = arrayListOf()
         adminambulanceList.addAll(AdminAmbulanceData.defaultAmbulances)
+         swipeContainer =  view.findViewById(R.id.swipeContainer)
+
+        swipeContainer.setOnRefreshListener { // Your code to refresh the list here.
+            // Make sure you call swipeContainer.setRefreshing(false)
+            // once the network request has completed successfully.
+            EventChangeListener()
+        }
 
         val adminRecyclerView = view.findViewById<RecyclerView>(R.id.rvAdminContainer)
         adminRecyclerView.setHasFixedSize(true)
@@ -53,7 +59,6 @@ class Fragment_admin_home : Fragment() {
 
         amAdminAdapter = AdminAmbulanceAdapter(adminambulanceList, parentFragmentManager)
         adminRecyclerView?.adapter = amAdminAdapter
-
 
         EventChangeListener()
     }
@@ -68,6 +73,7 @@ class Fragment_admin_home : Fragment() {
                     Log.e("Firestore Error", error.message.toString())
                     return
                 }
+                adminambulanceList.clear()
                 for (ambulance in value?.documents!!) {
                     val name = ambulance.getString("Name")!!
                     val fees = ambulance.getString("Fees")!!
@@ -76,6 +82,7 @@ class Fragment_admin_home : Fragment() {
                 }
 
                 amAdminAdapter.notifyDataSetChanged()
+                swipeContainer.isRefreshing = false
             }
 
         })

@@ -81,18 +81,26 @@ class AdminAmbulanceDetail : Fragment() {
                 }
             }
         }
-        val adminDetailName = view.findViewById<TextInputEditText>(R.id.adminDetailName).text.toString()
-        val adminDetailLocation = view.findViewById<TextInputEditText>(R.id.adminDetailLocation).text.toString()
-        val adminDetailDescription = view.findViewById<TextInputEditText>(R.id.adminDetailDescription).text.toString()
-        val adminDetailFee = view.findViewById<TextInputEditText>(R.id.adminDetailFee).text.toString()
-        val adminDetailContact = view.findViewById<TextInputEditText>(R.id.adminDetailContact).text.toString()
 
         val updateAmbulance = view.findViewById<MaterialButton>(R.id.updateAmbulance)
 
         //Updating the ambulance company
         updateAmbulance.setOnClickListener {
-            id?.let { db.collection("cardAmbulance").document(it).update("Name", adminDetailName)}
-            parentFragmentManager.beginTransaction().add(R.id.container,Fragment_admin_home()).commit()
+            id?.let {
+                val adminDetailName = view.findViewById<TextInputEditText>(R.id.adminDetailName).text.toString()
+                val adminDetailLocation = view.findViewById<TextInputEditText>(R.id.adminDetailLocation).text.toString()
+                val adminDetailDescription = view.findViewById<TextInputEditText>(R.id.adminDetailDescription).text.toString()
+                val adminDetailFee = view.findViewById<TextInputEditText>(R.id.adminDetailFee).text.toString()
+                val adminDetailContact = view.findViewById<TextInputEditText>(R.id.adminDetailContact).text.toString()
+
+                db.collection("cardAmbulance").document(it).update("Name", adminDetailName)
+                db.collection("cardAmbulance").document(it).update("Fees", adminDetailFee)
+                db.collection("cardAmbulance").document(it).update("Description", adminDetailDescription)
+                db.collection("cardAmbulance").document(it).update("Phone", adminDetailContact)
+                db.collection("cardAmbulance").document(it).update("Location", adminDetailLocation)
+
+            }
+            parentFragmentManager.beginTransaction().add(R.id.adminContainer,Fragment_admin_home()).commit()
         }
     }
 
