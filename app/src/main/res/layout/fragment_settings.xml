@@ -22,7 +22,7 @@
             android:layout_height="230dp"
             android:scaleType="centerCrop"
             android:background="@color/white"
-            android:src="@drawable/ambulance"/>
+            android:src="@drawable/adminspainambulance"/>
 
         <TextView
             android:layout_width="match_parent"

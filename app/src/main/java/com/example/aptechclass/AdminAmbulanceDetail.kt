@@ -45,6 +45,7 @@ class AdminAmbulanceDetail : Fragment() {
 
 //       AlertDialog.Builder(view.context).setMessage("Are you sure you want to delete").show()
 
+        //Fetching data from the firebase fire store and passing it into the admin details page.
         id.let {
             if (it != null) {
                 db.collection("cardAmbulance").document(it).addSnapshotListener { value, error ->
@@ -88,22 +89,16 @@ class AdminAmbulanceDetail : Fragment() {
 
         val updateAmbulance = view.findViewById<MaterialButton>(R.id.updateAmbulance)
 
+        //Updating the ambulance company
         updateAmbulance.setOnClickListener {
             id?.let { db.collection("cardAmbulance").document(it).update("Name", adminDetailName)}
             parentFragmentManager.beginTransaction().add(R.id.container,Fragment_admin_home()).commit()
-
         }
     }
 
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
 
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(id: String) =
             AdminAmbulanceDetail().apply {

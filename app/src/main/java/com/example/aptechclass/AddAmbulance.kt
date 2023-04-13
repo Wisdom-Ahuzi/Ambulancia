@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,18 +43,26 @@ class AddAmbulance : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Creating/Adding a new Ambulance
+        val addName = view.findViewById<TextInputEditText>(R.id.addName).text.toString()
+        val addLocation = view.findViewById<TextInputEditText>(R.id.addLocation).text.toString()
+        val addDescription = view.findViewById<TextInputEditText>(R.id.addDescription).text.toString()
+        val addFees = view.findViewById<TextInputEditText>(R.id.addFees).text.toString()
+        val addNumber = view.findViewById<TextInputEditText>(R.id.addNumber).text.toString()
+
+        val createAmbulance = view.findViewById<MaterialButton>(R.id.createAmbulance)
+
+        createAmbulance.setOnClickListener {
+            if (addName.isNotEmpty() && addLocation.isNotEmpty() && addDescription.isNotEmpty() && addFees.isNotEmpty() && addNumber.isNotEmpty()){
+                Toast.makeText(view.context, "All requirements Fulfilled", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddAmbulance.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AddAmbulance().apply {

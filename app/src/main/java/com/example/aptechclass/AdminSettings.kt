@@ -48,10 +48,12 @@ class AdminSettings : Fragment() {
         val signoutBtn = view.findViewById<TextView>(R.id.signOut)
         val adminExitApp = view.findViewById<TextView>(R.id.adminExitApp)
 
+        // Functionality for exiting the app
         adminExitApp.setOnClickListener {
             exitProcess(0)
         }
 
+        //Functionality for the sign out button
         signoutBtn.setOnClickListener {
             Firebase.auth.signOut()
             val intent = Intent(context?.applicationContext, MainActivity::class.java)

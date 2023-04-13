@@ -14,6 +14,8 @@ class Admin_Home : AppCompatActivity() {
 
         val adminbottomNav = findViewById<BottomNavigationView>(R.id.adminBottomNav)
 
+        //Bottom navigation functionalities
+        //Changing the fragments in the home page
         adminbottomNav.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.Home -> supportFragmentManager.beginTransaction().add(R.id.adminContainer, Fragment_admin_home()).commit()

@@ -55,9 +55,9 @@ class HomeFragment : Fragment() {
         EventChangeListener()
     }
 
+    // Fetching data from the firebase fire store and passing them into each card of the recycler view of the home fragment page
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
-
         db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot>{
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {

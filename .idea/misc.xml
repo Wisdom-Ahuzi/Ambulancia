@@ -17,7 +17,7 @@
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.21710526315789475" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.21710526315789475" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.21153846153846154" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.10338345864661654" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/admin_ambulance_home.xml" value="0.1598731884057971" />
         <entry key="app/src/main/res/layout/ambulance_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_add_ambulance.xml" value="0.25" />
@@ -41,7 +41,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

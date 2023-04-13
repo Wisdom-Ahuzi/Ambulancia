@@ -28,7 +28,7 @@
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/ambulance"
-            android:src="@drawable/image" />
+            android:src="@drawable/spainambulance" />
 
 
         <TextView
