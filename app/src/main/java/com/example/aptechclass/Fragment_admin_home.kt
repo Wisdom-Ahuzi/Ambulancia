@@ -69,7 +69,7 @@ class Fragment_admin_home : Fragment() {
                 }
                 for (ambulance in value?.documents!!) {
                     val name = ambulance.getString("Name")!!
-                    val fees = Integer.parseInt(ambulance.getString("Fees")!!)
+                    val fees = ambulance.getString("Fees")!!
                     val location = ambulance.getString("Location")!!
                     adminambulanceList.add(AdminAmbulanceData(ambulance.id,name,location, fees))
                 }
