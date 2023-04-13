@@ -20,6 +20,7 @@ class Login : AppCompatActivity() {
 
         val sign_up_btn = findViewById<Button>(R.id.signupbtn);
 
+        //Button for signing into the admin page.
         sign_up_btn.setOnClickListener {
             val signupemail = findViewById<TextInputEditText>(R.id.signupemail).text.toString().trim()
             val signuppassword = findViewById<TextInputEditText>(R.id.signuppassword).text.toString()
@@ -28,6 +29,7 @@ class Login : AppCompatActivity() {
             mAuth!!.signInWithEmailAndPassword(signupemail, signuppassword)
                 .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
                     if (task.isSuccessful) {
+                        // If the task is successful, the user is navigated to the admin page
                             val intent = Intent(applicationContext,Admin_Home::class.java)
                             startActivity(intent)
                         Log.d("done", "onCreate: ")

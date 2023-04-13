@@ -58,6 +58,7 @@ class Fragment_admin_home : Fragment() {
         EventChangeListener()
     }
 
+    // Fetching data from the firebase fire store and passing them into each card of the recycler view of the admin page
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
         db.collection("cardAmbulance").addSnapshotListener(object : EventListener<QuerySnapshot>{

@@ -26,7 +26,6 @@ class settingsFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,17 +40,20 @@ class settingsFragment : Fragment() {
 
         val exitApp = view.findViewById<TextView>(R.id.exitApp)
 
+        // Functionality for exiting the app
         exitApp?.setOnClickListener{
             exitProcess(0)
         }
 
         val login = view.findViewById<TextView>(R.id.login)
 
+        //Functionality for the sign out button
         login.setOnClickListener {
             val intent = Intent(context?.applicationContext,Login::class.java)
             startActivity(intent)
         }
-        
+
+        // Functionality for enabling/disabling dark mode
         val switchOne = view.findViewById<Switch>(R.id.switchOne)
         
         switchOne.setOnCheckedChangeListener { compoundButton, isChecked ->
